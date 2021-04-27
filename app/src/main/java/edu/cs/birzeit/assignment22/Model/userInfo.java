@@ -1,4 +1,4 @@
-package edu.cs.birzeit.assignment22;
+package edu.cs.birzeit.assignment22.Model;
 
 import android.app.AppComponentFactory;
 

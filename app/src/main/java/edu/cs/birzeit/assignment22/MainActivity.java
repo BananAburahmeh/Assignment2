@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         setupViews();
-        setupSharedPrefs();
+        setUpSharedPrefs();
         loadPrefs();
     }
                 public void btnSaveOnClick(View v) {
@@ -60,6 +60,17 @@ public class MainActivity extends AppCompatActivity {
                     ageStr = edtAge.getText().toString();
                     languagesStr = spinner.getSelectedItem().toString();
                     hobbiesStr = edtHobbies.getText().toString();
+
+
+//                    userInfo [] user = new userInfo[1];
+//                    user[1] = new userInfo("name", "email","address","gender","phone","age","language","hobbies","education", "work");
+
+
+
+//                    it didn't recognize the Gson eventhough i added it
+//                    Gson gson = new Gson();
+//                    String userString = gson.toJson(user);
+
 
                     editor.putString(Name, nameStr);
                     editor.putString(Email, emailStr);
@@ -90,9 +101,10 @@ public class MainActivity extends AppCompatActivity {
         save = findViewById(R.id.btnSave);
         next = findViewById(R.id.btnNext);
     }
-    private  void setupSharedPrefs(){
+    private void setUpSharedPrefs(){
         prefs = PreferenceManager.getDefaultSharedPreferences(this );
         editor = prefs.edit();
+
     }
     private void loadPrefs(){
         nameStr = prefs.getString(Name, "");

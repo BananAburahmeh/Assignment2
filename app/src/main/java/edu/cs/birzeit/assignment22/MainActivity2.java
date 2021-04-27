@@ -14,7 +14,7 @@ public class MainActivity2 extends AppCompatActivity {
     private EditText edtEdu;
     private SharedPreferences prefs;
     private SharedPreferences.Editor editor;
-    public static final String Edu= "Education";
+    public static final String Education= "Education";
     public static final String Work = "Work";
     String EduStr,WorkStr;
 
@@ -24,17 +24,26 @@ public class MainActivity2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
         setupViews();
-        setupSharedPrefs();
+        setUpSharedPrefs();
         loadPrefs();
     }
 
 
 
     public void btnSaveOnClick(View v) {
-        EduStr = edtWork.getText().toString();
+        EduStr = edtEdu.getText().toString();
         WorkStr = edtWork.getText().toString();
 
-        editor.putString(Edu, EduStr);
+//        userInfo [] user = new userInfo[1];
+//        user[1] = new userInfo("name", "email","address","gender","phone","age","language","hobbies","education", "work");
+
+
+//        it didn't recognize the Gson eventhough i added it
+//        Gson gson = new Gson();
+//        String userString = gson.toJson(user);
+
+
+        editor.putString(Education, EduStr);
         editor.putString(Work, WorkStr);
         editor.commit();
     }
@@ -45,14 +54,13 @@ public class MainActivity2 extends AppCompatActivity {
         edtEdu = findViewById(R.id.edtEdu);
 
     }
-
-    private  void setupSharedPrefs(){
+    private void setUpSharedPrefs(){
         prefs = PreferenceManager.getDefaultSharedPreferences(this );
         editor = prefs.edit();
-    }
 
+    }
     private void loadPrefs(){
-        EduStr = prefs.getString(Edu, "");
+        EduStr = prefs.getString(Education, "");
         WorkStr = prefs.getString(Work, "");
 
         edtEdu.setText(EduStr);
